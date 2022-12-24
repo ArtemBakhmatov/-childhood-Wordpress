@@ -251,7 +251,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div id="map" class="contacts__map">
+                        <div class="contacts__map">
+                            <?php echo do_shortcode('[yamap center="55.7468,37.7933" height="22rem" controls="" zoom="16" type="yandex#map" scrollzoom="0" mobiledrag="0"][yaplacemark  name="1" coord="55.7531090556539,37.81318419189379" icon="islands#dotIcon" color="#1e98ff"][yaplacemark  coord="55.747880944681256,37.80348532409669" icon="islands#dotIcon" color="#1e98ff"][yaplacemark  coord="55.7466,37.7915" icon="islands#dotIcon" color="#1e98ff"][/yamap]') ?>
                         </div>
                     </div>
                 </div>
