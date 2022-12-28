@@ -1,21 +1,27 @@
 <?php
-    /*
-        Template Name: Игрушки
-    */
-?>
-
-<?php 
     get_header();
 ?>
+    
+	<main id="primary" class="site-main">
 
-<div class="toys">
-    <div class="container">
-        <h2 class="subtitle">Мягкие игрушки</h2>
+		<?php
+		while ( have_posts() ) :
+			the_post();
+
+			get_template_part( 'template-parts/content', get_post_type() );
+
+		endwhile; // End of the loop.
+		?>
+
+	</main><!-- #main -->
+
+    <div class="container toys">
+        <h2 class="subtitle">Возможно вам понравятся</h2>
         <div class="toys__wrapper">
             <?php
                 // параметры по умолчанию
                 $my_posts = get_posts( array(
-                    'numberposts' => -1, // -1 - все слайды
+                    'numberposts' => 3, // 3 поста
                     'category_name'    => 'soft_toys',
                     'orderby'     => 'date',
                     'order'       => 'ASC',
@@ -51,31 +57,6 @@
             ?>
         </div>
 
-
-        <h2 class="subtitle">Развивающие игрушки</h2>
-        <div class="toys__wrapper">
-
-            <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_7.jpg)">
-                <div class="toys__item-info">
-                    <div class="toys__item-title">Воздушный змей</div>
-                    <div class="toys__item-descr">
-                        Кто в детстве не хотел научиться летать? А змей поможет поймать ветер и унести все заботы далеко-далеко...    
-                    </div>
-                    <a href="<?php echo get_permalink(); ?>" class="minibutton toys__trigger">Подробнее</a>
-                </div>
-            </div>
-
-            <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_8.jpg)">
-                <div class="toys__item-info">
-                    <div class="toys__item-title">Музыкальные</div>
-                    <div class="toys__item-descr">
-                        Попробуйте заинтересовать ребенка музыкой! Может в нем таится будущий Джаред Лето!
-                    </div>
-                    <a href="<?php echo get_permalink(); ?>" class="minibutton toys__trigger">Подробнее</a>
-                </div>
-            </div>
-
-        </div>
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="toys__alert">
@@ -84,8 +65,7 @@
             </div>
         </div>
     </div>
-</div>
 
-<?php 
-    get_footer();
-?>
+<?php
+
+get_footer();
